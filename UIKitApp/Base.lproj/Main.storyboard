@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="gY8-KL-euB">
-                                <rect key="frame" x="16" y="99" width="361" height="289.33333333333331"/>
+                                <rect key="frame" x="16" y="99" width="361" height="545.33333333333337"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kOG-bu-GvC">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="32"/>
@@ -46,8 +46,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="deo-oe-sD4">
+                                        <rect key="frame" x="0.0" y="275" width="361" height="216"/>
+                                        <connections>
+                                            <action selector="datePicked" destination="BYZ-38-t0r" eventType="valueChanged" id="B8y-ZY-P4J"/>
+                                        </connections>
+                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dp5-pa-fFD">
-                                        <rect key="frame" x="0.0" y="275.33333333333331" width="361" height="14"/>
+                                        <rect key="frame" x="0.0" y="531.33333333333337" width="361" height="14"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
@@ -66,6 +72,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="datePicker" destination="deo-oe-sD4" id="A1D-KT-MaC"/>
                         <outlet property="doneButton" destination="dp5-pa-fFD" id="hwv-7M-eeE"/>
                         <outlet property="mainLabel" destination="A1s-v1-fIA" id="ZwF-4N-SH6"/>
                         <outlet property="segmentedControl" destination="kOG-bu-GvC" id="gRY-Kd-Jcs"/>

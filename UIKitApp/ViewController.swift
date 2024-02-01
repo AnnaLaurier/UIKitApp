@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
-
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +40,9 @@ class ViewController: UIViewController {
         // Button
         doneButton.setTitle("Done", for: .normal)
         doneButton.setTitleColor(.white, for: .normal)
+
+        // Date Picker
+        datePicker.locale = Locale(identifier: "ru_RU")
     }
 
 
@@ -79,15 +83,28 @@ class ViewController: UIViewController {
         mainLabel.text = textField.text
     }
 
+    @IBAction func datePicked() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.locale = Locale(identifier: "ru_RU")
 
+        mainLabel.text = formatter.string(from: datePicker.date)
+    }
+    
 }
 
 // MARK: - Private Methods
 
 extension ViewController {
-    private func showAlert(with title: String and message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStatusBarStyle: .alert)
+    private func showAlert(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.textField.text = ""
+        }
+        alert.addAction(okAction)
         present(alert, animated: true)
     }
+
+
 }
 
